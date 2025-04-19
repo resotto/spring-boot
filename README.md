@@ -15,10 +15,7 @@
 # brew tap spring-io/tap
 # brew install spring-boot
 # spring --version # Spring CLI v3.4.4
-spring init -f --build=gradle --type=gradle-project --groupId=com.example --artifactId=spring-boot --package-name=com.example.spring-boot --java-version=23 --extract .
-# add `developmentOnly 'org.springframework.boot:spring-boot-devtools'` to build.gradle > dependencies
-# gradle --version # Gradle 8.12.1
-gradle wrapper
+spring init -f --build=gradle --type=gradle-project --groupId=com.example --artifactId=spring-boot --package-name=com.example.spring-boot --dependencies=web,devtools --java-version=23 --extract .
 ./gradlew bootRun
 # curl "http://localhost:8080"
 # curl -X POST "http://localhost:8080/update?entity=bob"
