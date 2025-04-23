@@ -60,6 +60,14 @@ curl -X POST http://localhost:8080/orders \
   -d '{"amount": 2000, "user": {"id": "abc"}}'
 
 curl http://localhost:8080/orders/153
+
+curl 'http://localhost:8080/orders?userId=abc'
+
+curl -X POST http://localhost:8080/orders/register \
+  -H "Content-Type: application/json" \
+  -d '{"id": 353, "amount": 44, "user": {"id": "abc"}}'
+
+curl http://localhost:8080/orders/353
 ```
 
 # VSCode Memo
