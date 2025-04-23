@@ -1,8 +1,5 @@
 # spring-boot
 
-## TODO
-1. [Spring Batch](https://docs.spring.io/spring-batch/reference/index.html)
-
 ## procedures
 ```zh
 # java -version # openjdk version "23.0.2"
@@ -41,7 +38,7 @@ spring.jpa.open-in-view=false
 spring.batch.job.enabled=false
 ```
 
-## CockRoachDB
+## CockRoachDB example
 ```sh
 docker run --name cockroachdb -p 26257:26257 -p 8888:8080 -d cockroachdb/cockroach start-single-node --insecure
 
