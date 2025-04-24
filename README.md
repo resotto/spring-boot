@@ -6,19 +6,24 @@
 # brew tap spring-io/tap
 # brew install spring-boot
 # spring --version # Spring CLI v3.4.4
-spring init -f --build=gradle --type=gradle-project --groupId=com.example --artifactId=spring-boot --package-name=com.example.spring-boot --dependencies=web,validation,test,lombok,batch,data-jpa,data-redis,kafka,devtools --java-version=23 --extract .
+spring init -f --build=gradle --type=gradle-project --groupId=com.example --artifactId=spring-boot --package-name=com.example.spring-boot --dependencies=web,validation,test,lombok,data-jpa,devtools --java-version=23 --extract .
 
-./gradlew bootRun --args='--spring.profiles.active=prod'
-
-# curl -X POST http://localhost:8080/users \
-     -H "Content-Type: application/json" \
-     -d '{"age": 24, "name": "john"}'
-# curl -i "http://localhost:8080/users/john"
-# curl -i "http://localhost:8080/users?name=john"
-
-# curl -X POST "http://localhost:8080/payments/charges/abc"
+LOG_LEVEL="Info" ./gradlew bootRun --args='--spring.profiles.active=prod'
 
 ./gradlew test
+
+curl -X POST http://localhost:8080/users \
+     -H "Content-Type: application/json" \
+     -d '{"age": 24, "name": "john"}'
+curl -i "http://localhost:8080/users/john"
+curl -i "http://localhost:8080/users?name=john"
+
+curl -X POST "http://localhost:8080/payments/charges/abc"
+
+curl http://localhost:8080/orders/loglevel
+
+curl 'http://localhost:8080/orders/async/false'
+curl 'http://localhost:8080/orders/async/true'
 ```
 
 build.gradle
